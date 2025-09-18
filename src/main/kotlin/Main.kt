@@ -1,6 +1,7 @@
 package org.example
 
 import org.example.dresseur.Entraineur
+import org.example.monde.Zone
 import org.example.monstres.EspeceMonstre
 
 /**
@@ -41,9 +42,15 @@ var espece_Galum = EspeceMonstre(13, "Galum", "Mineral", 12, 15, 6, 8, 12, 55, 9
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+var route1 = Zone(
+    1, "Route_1", 0
+    )
+var route2 = Zone(
+    2, "Route_2", 0,
+)
 
 fun main() {
+    route1.zoneSuivante = route2
+    route2.zonePrecedente = route1
     println(espece_Springleaf.afficheArt())
-    println(espece_Flamkip.afficheArt())
-    println(espece_Aquamy.afficheArt())
 }
