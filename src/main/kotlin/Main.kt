@@ -1,8 +1,8 @@
 package org.example
-
 import org.example.dresseur.Entraineur
 import org.example.monde.Zone
 import org.example.monstres.EspeceMonstre
+import org.example.monstres.IndividuMonstre
 
 /**
  * Change la couleur du message donné selon le nom de la couleur spécifié.
@@ -52,5 +52,8 @@ var route2 = Zone(
 fun main() {
     route1.zoneSuivante = route2
     route2.zonePrecedente = route1
-    println(espece_Springleaf.afficheArt())
+
+    val monstre1 = IndividuMonstre(1, "springleaf", espece_Springleaf, joueur, 1500.0)
+    val monstre2 = IndividuMonstre(2, "flamkip", espece_Flamkip, joueur, 1500.0)
+    val monstre3 = IndividuMonstre(3, "aquamy", espece_Aquamy, joueur, 1500.0)
 }
