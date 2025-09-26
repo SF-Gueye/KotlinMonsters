@@ -53,7 +53,11 @@ fun main() {
     route1.zoneSuivante = route2
     route2.zonePrecedente = route1
 
-    val monstre1 = IndividuMonstre(1, "springleaf", espece_Springleaf, joueur, 1500.0)
+    val monstre1 = IndividuMonstre(1, "springleaf", espece_Springleaf, joueur, 1500.0) // 975000.0 est le niveau 100
     val monstre2 = IndividuMonstre(2, "flamkip", espece_Flamkip, joueur, 1500.0)
     val monstre3 = IndividuMonstre(3, "aquamy", espece_Aquamy, joueur, 1500.0)
+    monstre1.renommer()
+    monstre1.attaquer()
+//    monstre1.afficheArt()
+    monstre1.afficheDetail()
 }

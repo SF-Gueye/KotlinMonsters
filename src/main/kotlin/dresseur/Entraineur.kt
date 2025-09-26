@@ -1,11 +1,13 @@
 package org.example.dresseur
 
+import org.example.monstres.IndividuMonstre
+
 class Entraineur(
     var id: Int,
     var nom: String,
     var argents:Int,
-    //TODO equipeMonstre
-    //TODO boiteMonstre
+    var equipeMonstre: MutableList<IndividuMonstre> = mutableListOf(),
+    var boiteMonstre: MutableList<IndividuMonstre> = mutableListOf(),
     //TODO sacAKube
 ) {
     /**
