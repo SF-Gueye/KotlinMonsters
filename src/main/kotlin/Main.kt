@@ -1,5 +1,9 @@
 package org.example
 import org.example.dresseur.Entraineur
+import org.example.item.Badge
+import org.example.item.MonsterKube
+import org.example.jeu.CombatMonstre
+import org.example.jeu.Partie
 import org.example.monde.Zone
 import org.example.monstres.EspeceMonstre
 import org.example.monstres.IndividuMonstre
@@ -43,21 +47,42 @@ var espece_Galum = EspeceMonstre(13, "Galum", "Mineral", 12, 15, 6, 8, 12, 55, 9
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 var route1 = Zone(
-    1, "Route_1", 0
-    )
+    1, "Route 1", 600, mutableListOf(espece_Laoumi, espece_Bugsyface))
 var route2 = Zone(
-    2, "Route_2", 0,
-)
+    2, "Route 2", 800, mutableListOf(espece_Springleaf, espece_Galum))
+
+var kube1 = MonsterKube(1, "Kube", "Un petit kube pour capturer un monstre.", 0.5)
+
+fun nouvellePartie(): Partie {
+    println(changeCouleur("Bienvenue dans le monde des Kotlin Monsters !", "jaune"))
+    val nomJoueur = readln().toString()
+    joueur.nom = nomJoueur
+    return Partie(1, joueur, route1)
+}
 
 fun main() {
     route1.zoneSuivante = route2
     route2.zonePrecedente = route1
+    joueur.sacAItems.add(kube1)
 
-    val monstre1 = IndividuMonstre(1, "springleaf", espece_Springleaf, joueur, 1500.0) // 975000.0 est le niveau 100
-    val monstre2 = IndividuMonstre(2, "flamkip", espece_Flamkip, joueur, 1500.0)
+    val monstre1 = IndividuMonstre(1, "springleaf", espece_Springleaf, null, 1500.0) // 1500.0 est le niveau 5
+    val monstre2 = IndividuMonstre(2, "flamkip", espece_Flamkip, joueur, 1500.0) // 975000.0 est le niveau 100
     val monstre3 = IndividuMonstre(3, "aquamy", espece_Aquamy, joueur, 1500.0)
-    monstre1.renommer()
+
+    /*monstre1.renommer()
     monstre1.attaquer()
-//    monstre1.afficheArt()
+    //monstre1.afficheArt()
     monstre1.afficheDetail()
+    monstre1.renommer()
+    val badge1 = Badge(1, "Badge Roche", "Badge gagné lorsque le joueur bat le champion d'arène de type roche.", joueur)*/
+    //kube1.utiliser(monstre1)
+
+    //CombatMonstre(monstre1, monstre3).jouer()
+
+    //route1.rencontrerMonstre()
+
+
+    val partie = nouvellePartie()
+    partie.choixStarter()
+    partie.jouer()
 }

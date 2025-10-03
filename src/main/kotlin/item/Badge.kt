@@ -1,5 +1,8 @@
 package org.example.item
 
-class Badge() {
+import org.example.dresseur.Entraineur
+
+class Badge(id: Int, nom: String, description: String,
+var champion: Entraineur): Item(id, nom, description) {
 
 }
